@@ -2,7 +2,7 @@
     "type": "module",
     "scripts": {
         "dev": "rollup -c -w",
-        "build": "rollup -c"
+        "build": "rollup -c --environment NODE_ENV:production"
     },
     "devDependencies": {
         "@rollup/plugin-run": "^2.1.0",

@@ -5,8 +5,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import run from '@rollup/plugin-run';
 
-
-export default defineConfig({
+const config = defineConfig({
     input: './src/index.ts',
     output: {
         dir: './build',
@@ -18,6 +17,11 @@ export default defineConfig({
         nodeResolve(),
         commonjs(),
         json(),
-        run()
     ]
 })
+
+if (process.env.NODE_ENV !== 'production') {
+    config.plugins.push(run());
+}
+
+export default config;
